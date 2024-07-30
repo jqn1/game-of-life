@@ -2,6 +2,8 @@ let rows = 20;
 let cols = 20;
 let grid = [];
 let cellSize;
+let clickX;
+let clickY;
 
 function setup() {
     createCanvas(400, 400);
@@ -20,8 +22,21 @@ function draw() {
     background(220);
     for(row of grid) {
         for(cell of row) {
+            if (dist(cell.centerX,cell.centerY,clickX,clickY) < 1.4*cellSize/2) {
+                console.log(cell.centerX);
+                console.log(clickX);
+                cell.state = 1;
+                clickX = undefined;
+                clickY = undefined;
+            }
             cell.display();
         }
 
     }
+}
+
+function mouseClicked() {
+    clickX = mouseX;
+    clickY = mouseY;
+
 }
