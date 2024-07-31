@@ -16,6 +16,7 @@ function setup() {
                 grid[i][j] = new Cell(x,y);
             }
         }
+    addCellNeighbors(grid);
     }
   
 function draw() {
@@ -23,8 +24,6 @@ function draw() {
     for(row of grid) {
         for(cell of row) {
             if (dist(cell.centerX,cell.centerY,clickX,clickY) < 1.4*cellSize/2) {
-                console.log(cell.centerX);
-                console.log(clickX);
                 cell.state = 1;
                 clickX = undefined;
                 clickY = undefined;
@@ -40,3 +39,40 @@ function mouseClicked() {
     clickY = mouseY;
 
 }
+
+
+function addCellNeighbors(grid) {
+    for (let i = 0;i<rows; i++) {
+        for(let j = 0; j<cols; j++) {
+            let cell = grid[i][j];
+            let cellX = i;
+            let cellY = j;
+            if (i<rows-1 ) {
+                cell.neighbors.push(grid[i+1][j]);
+            }
+            if (i>0) {
+                cell.neighbors.push(grid[i-1][j]);
+            }
+            if (j>0) {
+                cell.neighbors.push(grid[i][j-1]);
+            }
+            if (j<cols-1) {
+                cell.neighbors.push(grid[i][j+1]);
+            }
+            if (i>0 && j>0) {
+                cell.neighbors.push(grid[i-1][j-1]);
+            }
+            if (i<rows-1 && j<cols-1) {
+                cell.neighbors.push(grid[i+1][j+1]);
+            }
+            if (i>0 && j<cols-1) {
+                cell.neighbors.push(grid[i-1][j+1]);
+            }
+            if (i<rows-1 && j>0) {
+                cell.neighbors.push(grid[i+1][j-1]);
+            }
+        }
+
+    }
+}
+
