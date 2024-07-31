@@ -4,9 +4,11 @@ let grid = [];
 let cellSize;
 let clickX;
 let clickY;
+let startGame;
 
 function setup() {
     createCanvas(400, 400);
+    frameRate(2);
     cellSize = width/cols;
     for (let i = 0; i<rows; i++) {
             grid.push(Array());
@@ -30,6 +32,14 @@ function draw() {
             }
             cell.display();
         }
+    }
+    for(row of grid) {
+        for(cell of row) {
+            if(cell.nextState !== undefined) {
+                cell.state = cell.nextState;
+            }
+        }
+    
 
     }
 }
