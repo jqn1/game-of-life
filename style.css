@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap');
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
+    font-family: "Silkscreen",sans-serif;
+    color: rgb(0, 252, 0);
+}
+
+.title {
+    font-size: 60px;
+}
+
+.stats {
+    display: flex;
+    width: 1200px;
+    font-size: 30px;
+    justify-content: space-between;
+
+}
+
+.p5Canvas {
+    border: 2px solid rgb(0, 252, 0);
+}

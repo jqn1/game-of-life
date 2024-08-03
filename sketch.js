@@ -8,6 +8,7 @@ let startGame;
 let generation = 0;
 let aliveCells = 0;
 const statsContainer = document.createElement("div");
+statsContainer.classList.add("stats")
 const body = document.querySelector("body");
 const generationContainer = document.createElement("div");
 const aliveCellsContainer = document.createElement("div");
