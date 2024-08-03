@@ -1,8 +1,8 @@
 class Cell {
-    constructor(x,y) {
+    constructor(x,y,state) {
         this.x = x;
         this.y = y;
-        this.state = 0;
+        this.state = state;
         this.centerX = x+(cellSize)/2;
         this.centerY = y+(cellSize)/2;
         this.neighbors = [];
@@ -18,11 +18,10 @@ class Cell {
         
         rect(this.x,this.y,cellSize,cellSize);
 
-        if (startGame === true) {
-            this.checkNeighbors();
-        }
+        this.checkNeighbors();
     
     }
+
     checkNeighbors() {
         let aliveNeighbors = 0;
         for(let neighbor of this.neighbors) {

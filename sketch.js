@@ -1,21 +1,22 @@
-let rows = 20;
-let cols = 20;
 let grid = [];
-let cellSize;
+let cellSize = 20;
+let rows;
+let cols;
 let clickX;
 let clickY;
 let startGame;
 
 function setup() {
-    createCanvas(400, 400);
-    frameRate(2);
-    cellSize = width/cols;
+    createCanvas(800, 800);
+    frameRate(8);
+    rows = height/cellSize;
+    cols = width/cellSize;
     for (let i = 0; i<rows; i++) {
             grid.push(Array());
             for (let j = 0; j<cols; j++) {
                 let x = (width/cols)*j;
                 let y = (height/rows)*i;
-                grid[i][j] = new Cell(x,y);
+                grid[i][j] = new Cell(x,y,randomState());
             }
         }
     addCellNeighbors(grid);
@@ -86,3 +87,13 @@ function addCellNeighbors(grid) {
     }
 }
 
+function randomState() {
+    let number = Math.random();
+    let state;
+    if (number>=0.75) {
+        state = 1;
+    }else {
+        state = 0;
+    }
+    return state;
+}
