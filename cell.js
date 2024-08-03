@@ -9,11 +9,13 @@ class Cell {
     }
 
     display() {
+        stroke("gray");
+        strokeWeight(0.5);
 
         if(this.state === 0) {
-            fill("white");
-        }else {
             fill("black");
+        }else {
+            fill(0,252,0);
         }
         
         rect(this.x,this.y,cellSize,cellSize);

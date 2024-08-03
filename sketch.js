@@ -7,10 +7,10 @@ let clickY;
 let startGame;
 
 function setup() {
-    createCanvas(800, 800);
+    createCanvas(1200, 800);
     frameRate(8);
-    rows = height/cellSize;
-    cols = width/cellSize;
+    rows = (height)/cellSize;
+    cols = (width)/cellSize;
     for (let i = 0; i<rows; i++) {
             grid.push(Array());
             for (let j = 0; j<cols; j++) {
@@ -90,7 +90,7 @@ function addCellNeighbors(grid) {
 function randomState() {
     let number = Math.random();
     let state;
-    if (number>=0.75) {
+    if (number>=0.7) {
         state = 1;
     }else {
         state = 0;
