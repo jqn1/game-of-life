@@ -5,9 +5,23 @@ let cols;
 let clickX;
 let clickY;
 let startGame;
+let generation = 0;
+let aliveCells = 0;
+const statsContainer = document.createElement("div");
+const body = document.querySelector("body");
+const generationContainer = document.createElement("div");
+const aliveCellsContainer = document.createElement("div");
 
 function setup() {
     createCanvas(1200, 800);
+
+    body.appendChild(statsContainer);
+    statsContainer.appendChild(generationContainer);
+    statsContainer.appendChild(aliveCellsContainer);
+
+
+
+
     frameRate(8);
     rows = (height)/cellSize;
     cols = (width)/cellSize;
@@ -23,6 +37,10 @@ function setup() {
     }
   
 function draw() {
+    aliveCells = 0;
+    generationContainer.textContent = ("Current Generation: "+generation);
+    generation++;
+
     background(220);
     for(row of grid) {
         for(cell of row) {
@@ -31,9 +49,14 @@ function draw() {
                 clickX = undefined;
                 clickY = undefined;
             }
+            if (cell.state === 1) {
+                aliveCells++;
+
+            }
             cell.display();
         }
     }
+    aliveCellsContainer.textContent = ("Alive Cells: "+aliveCells);
     for(row of grid) {
         for(cell of row) {
             if(cell.nextState !== undefined) {
@@ -97,3 +120,6 @@ function randomState() {
     }
     return state;
 }
+
+
+
