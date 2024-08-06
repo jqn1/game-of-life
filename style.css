@@ -9,6 +9,13 @@ body {
     color: rgb(0, 252, 0);
 }
 
+a{
+    font-size: 14px;
+    text-decoration: none;
+    color: inherit;
+    padding-bottom: 10px;
+}
+
 .title {
     font-size: 60px;
 }

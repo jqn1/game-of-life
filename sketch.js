@@ -1,5 +1,5 @@
 let grid;
-let cellSize = 5;
+let cellSize = 3;
 let rows;
 let cols;
 let clickX;
