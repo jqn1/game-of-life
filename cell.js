@@ -9,8 +9,8 @@ class Cell {
     }
 
     display() {
-        stroke("gray");
-        strokeWeight(0.5);
+        //stroke("gray");
+        //strokeWeight(0.5);
 
         if(this.state === 0) {
             fill("black");
